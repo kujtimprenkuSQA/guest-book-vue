@@ -94,6 +94,15 @@
     bn.js "^5.2.0"
     is-mobile "^3.1.1"
 
+"@near-wallet-selector/math-wallet@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@near-wallet-selector/math-wallet/-/math-wallet-7.1.0.tgz#ecf0edbb6832d159d2327cbad5cfd6af837baa45"
+  integrity sha512-ugU+PlLJSfzMqVLRg9+MTOdXXNV6dAtHYnDQXNq827z5dvK5LgFXzkpfeHLM39sTwTTta1YJ5xtv60Xco1so2g==
+  dependencies:
+    "@near-wallet-selector/core" "7.1.0"
+    "@near-wallet-selector/wallet-utils" "7.1.0"
+    is-mobile "^3.1.1"
+
 "@near-wallet-selector/modal-ui@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@near-wallet-selector/modal-ui/-/modal-ui-7.1.0.tgz#696dcd1f32cef32d1499a6ab7eb5e31f8d3f579f"
@@ -105,6 +114,14 @@
     react "18.2.0"
     react-dom "18.2.0"
 
+"@near-wallet-selector/my-near-wallet@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@near-wallet-selector/my-near-wallet/-/my-near-wallet-7.1.0.tgz#c64be84a34ae9c1bd390d5bdb74f2a5028dd1b53"
+  integrity sha512-g5XKy2DIRqixiTbDol+JWgS4SeF1wddTFtYx6xR3L4TMdmKh894TPCNXPs/hG2NkXzpGCFvU2NfxUKbuSWUGdQ==
+  dependencies:
+    "@near-wallet-selector/core" "7.1.0"
+    "@near-wallet-selector/wallet-utils" "7.1.0"
+
 "@near-wallet-selector/wallet-utils@7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@near-wallet-selector/wallet-utils/-/wallet-utils-7.1.0.tgz#b5b66fe67b5825586ec3e0cda8e7e3b63b2011bd"
@@ -112,6 +129,11 @@
   dependencies:
     "@near-wallet-selector/core" "7.1.0"
     bn.js "^5.2.0"
+
+"@types/big.js@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@types/big.js/-/big.js-6.1.6.tgz#3d417e758483d55345a03a087f7e0c87137ca444"
+  integrity sha512-0r9J+Zz9rYm2hOTwiMAVkm3XFQ4u5uTK37xrQMhc9bysn/sf/okzovWMYYIBMFTn/yrEZ11pusgLEaoarTlQbA==
 
 "@vitejs/plugin-vue@^3.1.0":
   version "3.1.2"
@@ -286,6 +308,11 @@ base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
+
+big.js@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-6.2.1.tgz#7205ce763efb17c2e41f26f121c420c6a7c2744f"
+  integrity sha512-bCtHMwL9LeDIozFn+oNhhFoq+yQ3BNdnsLSASUxLciOb1vgvpHsIO1dsENiGMgbb4SkP5TrzWzRiLddn8ahVOQ==
 
 bn.js@5.2.1, bn.js@^5.2.0:
   version "5.2.1"
@@ -789,7 +816,7 @@ rxjs@6:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^7.5.5:
+rxjs@^7.5.5, rxjs@^7.5.7:
   version "7.5.7"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.7.tgz#2ec0d57fdc89ece220d2e702730ae8f1e49def39"
   integrity sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==

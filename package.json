@@ -11,9 +11,14 @@
   "dependencies": {
     "@near-wallet-selector/core": "^7.1.0",
     "@near-wallet-selector/ledger": "^7.1.0",
+    "@near-wallet-selector/math-wallet": "^7.1.0",
     "@near-wallet-selector/modal-ui": "^7.1.0",
+    "@near-wallet-selector/my-near-wallet": "^7.1.0",
+    "@types/big.js": "^6.1.6",
+    "big.js": "^6.2.1",
     "buffer": "^6.0.3",
     "near-api-js": "^1.1.0",
+    "rxjs": "^7.5.7",
     "vue": "^3.2.37"
   },
   "devDependencies": {
