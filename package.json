@@ -12,6 +12,7 @@
     "@near-wallet-selector/core": "^7.1.0",
     "@near-wallet-selector/ledger": "^7.1.0",
     "@near-wallet-selector/modal-ui": "^7.1.0",
+    "buffer": "^6.0.3",
     "near-api-js": "^1.1.0",
     "vue": "^3.2.37"
   },
