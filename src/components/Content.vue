@@ -2,17 +2,13 @@
 import {
   onMounted,
   onUnmounted,
-  shallowRef
+  reactive
 } from "vue";
-
-// import type { Message } from "../../interfaces/message";
-// import type { Submitted } from "../form/form.component";
 
 import { providers, utils } from "near-api-js";
 import { distinctUntilChanged, map, Subscription } from "rxjs";
 import { Buffer} from "buffer";
 import { CONTRACT_ID } from "../constants";
-
 
 import type {
   AccountView,
@@ -32,11 +28,13 @@ import Form from "./Form.vue";
 const SUGGESTED_DONATION = "0";
 const BOATLOAD_OF_GAS = utils.format.parseNearAmount("0.00000000003")!;
 
-const account = shallowRef<Account | null>();
-const messages = shallowRef<Array<MessageType>>();
-const subscription = shallowRef<Subscription>();
-const currentAccounts = shallowRef<Array<AccountState>>();
-const currentAccountId = shallowRef<string | null >()
+interface ContentState {
+  account: Account | null;
+  messages: Array<MessageType>;
+  subscription: Subscription;
+  currentAccounts: Array<AccountState>;
+  currentAccountId: string | null;
+}
 
 const { selector, modal, accountId, accounts } = defineProps<{
   selector: WalletSelector;
@@ -45,8 +43,16 @@ const { selector, modal, accountId, accounts } = defineProps<{
   accounts: Array<AccountState>;
 }>();
 
+const state = reactive<ContentState>({
+  account: null,
+  messages: [],
+  subscription: new Subscription(),
+  currentAccounts: [],
+  currentAccountId: null,
+})
+
 const getAccount = async () =>{
-  if (!accountId) {
+  if (!state.currentAccountId) {
     return null;
   }
 
@@ -57,11 +63,11 @@ const getAccount = async () =>{
       .query<AccountView>({
         request_type: "view_account",
         finality: "final",
-        account_id: accountId,
+        account_id: state.currentAccountId,
       })
       .then((data) => ({
         ...data,
-        account_id: accountId,
+        account_id: state.currentAccountId,
       }));
 }
 
@@ -129,20 +135,20 @@ const onVerifyOwner = async () => {
 }
 
 const subscribeToEvents = () => {
-  subscription.value = selector.store.observable
+  state.subscription = selector.store.observable
       .pipe(
-          map((state) => state.accounts),
+          map((s) => s.accounts),
           distinctUntilChanged()
       )
       .subscribe((nextAccounts) => {
         console.log("Accounts Update", nextAccounts);
 
-        currentAccounts.value = nextAccounts;
-        currentAccountId.value =
-            nextAccounts.find((account) => account.active)?.accountId || null;
+        state.currentAccounts = nextAccounts;
+        state.currentAccountId =
+            nextAccounts.find((a) => a.active)?.accountId || null;
 
         getAccount().then((accountData) => {
-          account.value = accountData;
+          state.account = accountData;
         });
       });
 }
@@ -155,7 +161,7 @@ const addMessages = async (message: string, donation: string, multiple: boolean)
     return wallet
         .signAndSendTransaction({
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          signerId: currentAccountId.value!,
+          signerId: state.currentAccountId!,
           actions: [
             {
               type: "FunctionCall",
@@ -182,7 +188,7 @@ const addMessages = async (message: string, donation: string, multiple: boolean)
   for (let i = 0; i < 2; i += 1) {
     transactions.push({
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      signerId: currentAccountId.value!,
+      signerId: state.currentAccountId!,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       receiverId: contract!.contractId,
       actions: [
@@ -220,7 +226,7 @@ const onSubmit = (e: SubmitEvent) => {
       .then(() => {
         return getMessages()
             .then((nextMessages) => {
-              messages.value = nextMessages;
+              state.messages = nextMessages;
               message.value = "";
               donation.value = SUGGESTED_DONATION;
               fieldset.disabled = false;
@@ -241,26 +247,26 @@ const onSubmit = (e: SubmitEvent) => {
 };
 
 onMounted(async () => {
-  currentAccountId.value = accountId;
-  currentAccounts.value = accounts;
+  state.currentAccountId = accountId;
+  state.currentAccounts = accounts;
 
-  const [messagesData, accountData] = await Promise.all([
+  const [messages, account] = await Promise.all([
     getMessages(),
     getAccount(),
   ]);
 
-  account.value = accountData;
-  messages.value = messagesData;
+  state.account = account;
+  state.messages = messages;
 
   subscribeToEvents();
 });
 onUnmounted(() => {
-  subscription.value!.unsubscribe();
+  state.subscription.unsubscribe();
 });
 </script>
 
 <template>
-  <template v-if="account">
+  <template v-if="state.account">
     <div>
       <button @click="signOut">Log out</button>
       <button @click="switchWallet">Switch Provider</button>
@@ -269,8 +275,8 @@ onUnmounted(() => {
         Switch Account
       </button>
     </div>
-    <Form :account="account" :onSubmit="onSubmit" />
-    <Message :messages="messages" />
+    <Form :account="state.account" :onSubmit="onSubmit" />
+    <Message :messages="state.messages" />
   </template>
   <template v-else>
     <div>
