@@ -6,7 +6,7 @@ export default defineConfig({
   base: "/guest-book-vue/",
   plugins: [vue()],
   define: {
-    'process.env': {}
+    global: "globalThis",
   },
   build: {
     commonjsOptions: { include: [] },
