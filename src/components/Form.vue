@@ -4,7 +4,7 @@ import { Account } from "../interfaces/account";
 
 const props = defineProps<{
   account: Account;
-  onSubmit: (event: SubmitEvent) => void;
+  onSubmit: (event: any) => void;
 }>()
 
 const maxValue = Big(props.account.amount)

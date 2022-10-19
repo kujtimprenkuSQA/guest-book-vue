@@ -46,7 +46,7 @@ onMounted(async () => {
 <template>
   <h1>NEAR Guest Book</h1>
   <Content
-      v-if="selector"
+      v-if="selector && modal && accounts && accountId"
       :selector="selector"
       :modal="modal"
       :accountId="accountId"

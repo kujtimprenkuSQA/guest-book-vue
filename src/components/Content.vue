@@ -216,8 +216,8 @@ const addMessages = async (message: string, donation: string, multiple: boolean)
   });
 }
 
-const onSubmit = (e: SubmitEvent) => {
-  //@ts-ignore
+const onSubmit = (e: any) => {
+
   const { fieldset, message, donation, multiple } = e.target.elements;
 
   fieldset.disabled = true;
