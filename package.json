@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "gh-pages"
   },
   "dependencies": {
     "@near-wallet-selector/core": "^7.1.0",
@@ -17,6 +18,7 @@
     "@types/big.js": "^6.1.6",
     "big.js": "^6.2.1",
     "buffer": "^6.0.3",
+    "gh-pages": "^4.0.0",
     "near-api-js": "^1.1.0",
     "rxjs": "^7.5.7",
     "vue": "^3.2.37"
