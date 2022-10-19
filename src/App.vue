@@ -13,13 +13,6 @@ import type { WalletSelectorModal } from "@near-wallet-selector/modal-ui";
 
 import { CONTRACT_ID } from "./constants";
 
-declare global {
-  interface Window {
-    selector: WalletSelector;
-    modal: WalletSelectorModal;
-  }
-}
-
 const selector = shallowRef<WalletSelector>();
 const modal = shallowRef<WalletSelectorModal>();
 const accountId = shallowRef<string | null>();
