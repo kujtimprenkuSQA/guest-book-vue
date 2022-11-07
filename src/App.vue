@@ -15,6 +15,9 @@ import { setupNightlyConnect } from "@near-wallet-selector/nightly-connect";
 import { setupWalletConnect } from "@near-wallet-selector/wallet-connect";
 import { setupCoin98Wallet } from "@near-wallet-selector/coin98-wallet";
 import { setupHereWallet } from "@near-wallet-selector/here-wallet";
+import { setupOptoWallet } from "@near-wallet-selector/opto-wallet";
+import { setupWelldoneWallet } from "@near-wallet-selector/welldone-wallet";
+import { setupNeth } from "@near-wallet-selector/neth";
 
 import type { WalletSelector, AccountState } from "@near-wallet-selector/core";
 import type { WalletSelectorModal } from "@near-wallet-selector/modal-ui";
@@ -38,7 +41,10 @@ onMounted(async () => {
       setupMeteorWallet(),
       setupHereWallet(),
       setupCoin98Wallet(),
+      setupWelldoneWallet(),
       setupNearFi(),
+      setupNeth({ bundle: false }),
+      setupOptoWallet(),
       setupWalletConnect({
         projectId: "c4f79cc...",
         metadata: {
