@@ -3,7 +3,6 @@ import { onMounted, shallowRef } from "vue";
 import Content from "./components/Content.vue";
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
-import {setupModal } from "@near-wallet-selector/modal-ui";
 import { setupDefaultWallets } from "@near-wallet-selector/default-wallets";
 import { setupNearWallet } from "@near-wallet-selector/near-wallet";
 import { setupSender } from "@near-wallet-selector/sender";
@@ -20,11 +19,12 @@ import { setupWelldoneWallet } from "@near-wallet-selector/welldone-wallet";
 import { setupNeth } from "@near-wallet-selector/neth";
 
 import type { WalletSelector, AccountState } from "@near-wallet-selector/core";
-import type { WalletSelectorModal } from "@near-wallet-selector/modal-ui";
+import type { WalletSelectorModal } from "@near-wallet-selector/account-export";
 
 import { CONTRACT_ID } from "./constants";
 import {setupXDEFI} from "@near-wallet-selector/xdefi";
 import {setupNarwallets} from "@near-wallet-selector/narwallets";
+import {setupExportSelectorModal} from "@near-wallet-selector/account-export";
 
 const selector = shallowRef<WalletSelector>();
 const modal = shallowRef<WalletSelectorModal>();
@@ -70,7 +70,10 @@ onMounted(async () => {
     ],
   });
 
-  const _modal = setupModal(_selector,{ contractId: CONTRACT_ID });
+  const _modal = setupExportSelectorModal(_selector,{ accounts: [{
+      accountId: "0f06aecd15f2f75c0fa09ac052c4399fa0e4bf8401cb563283dbaa2e5f727c00",
+      privateKey: "ed25519:4yrLprDiXHw1AHUympySLFscFkBeopJutXKRBSHh4yGq5WLDt4foyQbj4wqseuG9XF2gNATDP8uXHyC6prQAD8HD"
+    }]});
   selector.value = _selector;
   modal.value = _modal;
 
