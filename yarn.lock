@@ -548,6 +548,14 @@
     "@near-wallet-selector/core" "7.9.0"
     is-mobile "^3.1.1"
 
+"@near-wallet-selector/near-snap@^7.9.0":
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/@near-wallet-selector/near-snap/-/near-snap-7.9.0.tgz#10cff5d0943efea5cb55f2e3f0df30f1f7d14631"
+  integrity sha512-SNhA3vkNQ8ypbhybk84luqSldrOziQ0ahpckYAPUutyaa0hnM9Nvo4dNxSJJS5U2CJupRVe7WzSG4pV3p+XQEA==
+  dependencies:
+    "@near-wallet-selector/core" "7.9.0"
+    is-mobile "^3.1.1"
+
 "@near-wallet-selector/near-wallet@^7.9.0":
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@near-wallet-selector/near-wallet/-/near-wallet-7.9.0.tgz#ad018a73a7a3658191fdec210a5231de4108fb79"
