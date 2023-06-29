@@ -4,7 +4,6 @@ import Content from "./components/Content.vue";
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import {setupModal } from "@near-wallet-selector/modal-ui";
-import { setupDefaultWallets } from "@near-wallet-selector/default-wallets";
 import { setupNearWallet } from "@near-wallet-selector/near-wallet";
 import { setupSender } from "@near-wallet-selector/sender";
 import { setupNearFi } from "@near-wallet-selector/nearfi";
@@ -37,7 +36,6 @@ onMounted(async () => {
   const _selector = await setupWalletSelector({
     network: "testnet",
     modules: [
-      ...(await setupDefaultWallets()),
       setupNearWallet(),
       setupSender(),
       setupMathWallet(),
