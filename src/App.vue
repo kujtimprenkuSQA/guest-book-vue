@@ -18,6 +18,7 @@ import { setupOptoWallet } from "@near-wallet-selector/opto-wallet";
 import { setupWelldoneWallet } from "@near-wallet-selector/welldone-wallet";
 import { setupNeth } from "@near-wallet-selector/neth";
 import { setupNearSnap } from "@near-wallet-selector/near-snap";
+import { setupRamperWallet } from "@near-wallet-selector/ramper-wallet";
 
 import type { WalletSelector, AccountState } from "@near-wallet-selector/core";
 import type { WalletSelectorModal } from "@near-wallet-selector/modal-ui";
@@ -50,7 +51,8 @@ onMounted(async () => {
       setupXDEFI(),
       setupNarwallets(),
       setupFinerWallet(),
-        setupNearSnap(),
+      setupNearSnap(),
+      setupRamperWallet(),
       setupWalletConnect({
         projectId: "c4f79cc...",
         metadata: {
