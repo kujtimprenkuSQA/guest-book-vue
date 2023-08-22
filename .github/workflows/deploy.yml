@@ -6,6 +6,9 @@ on:
       - main
 
 jobs:
+  env:
+    WALLETCONNECT_PROJECT_ID: ${{ secrets.WALLETCONNECT_PROJECT_ID }}
+
   deploy:
     runs-on: ubuntu-latest
 
