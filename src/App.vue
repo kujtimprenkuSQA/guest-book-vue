@@ -54,7 +54,7 @@ onMounted(async () => {
       setupNearSnap(),
       setupRamperWallet(),
       setupWalletConnect({
-        projectId: "c4f79cc...",
+        projectId: process.env.WALLETCONNECT_PROJECT_ID,
         metadata: {
           name: "NEAR Wallet Selector",
           description: "Example dApp used by NEAR Wallet Selector",

@@ -280,7 +280,7 @@ onUnmounted(() => {
   </template>
   <template v-else>
     <div>
-      <button @click="signIn">Log in</button>
+      <button @click="signIn">Log in for testing</button>
     </div>
     <SignIn />
   </template>
