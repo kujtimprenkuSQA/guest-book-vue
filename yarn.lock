@@ -514,6 +514,15 @@
     nanoid "3.3.4"
     query-string "^7.1.1"
 
+"@mintbase-js/wallet@0.5.0-beta.6":
+  version "0.5.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@mintbase-js/wallet/-/wallet-0.5.0-beta.6.tgz#2787f6992ed829e67d07828be84d16dd6f590a5d"
+  integrity sha512-22MDqUDMZm3puGEI8dv927Wtc5olRgGb5E7h67b1a5+N2DTKcLPmoHhzj0TFT3BmI9snrhq4MdAEvS785cjq1Q==
+  dependencies:
+    "@near-wallet-selector/core" "^8.5.4"
+    bn.js "^5.2.1"
+    near-api-js "^2.1.4"
+
 "@mischnic/json-sourcemap@^0.1.0":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@mischnic/json-sourcemap/-/json-sourcemap-0.1.1.tgz#0ef9b015a8f575dd9a8720d9a6b4dbc988425906"
@@ -770,7 +779,7 @@
     "@near-wallet-selector/wallet-utils" "8.8.0"
     is-mobile "4.0.0"
 
-"@near-wallet-selector/core@8.8.0", "@near-wallet-selector/core@^8.8.0":
+"@near-wallet-selector/core@8.8.0", "@near-wallet-selector/core@^8.5.4", "@near-wallet-selector/core@^8.8.0":
   version "8.8.0"
   resolved "https://registry.yarnpkg.com/@near-wallet-selector/core/-/core-8.8.0.tgz#f2fcd9b0bd40cdfd4c7af956a8fe6f3daf93997d"
   integrity sha512-mFga/YGvniEKUJlilKFBuLP5dc0HO8c5GGTt6nB/cBCwYZYSlMa+EgB35bTpAn4hdhsirArmGROte0flzsDNhg==
@@ -838,6 +847,13 @@
     "@meteorwallet/sdk" "0.8.0"
     "@near-wallet-selector/core" "8.8.0"
     "@near-wallet-selector/wallet-utils" "8.8.0"
+
+"@near-wallet-selector/mintbase-wallet@^8.8.0":
+  version "8.8.0"
+  resolved "https://registry.yarnpkg.com/@near-wallet-selector/mintbase-wallet/-/mintbase-wallet-8.8.0.tgz#6663bd0ca28d2afaa8f0a00509aa0eb628a29f15"
+  integrity sha512-5uqa9rC7MpQH6vcWPAGWljKe42ua2QUi4jDNB7306Bus8Ww9M603eYcmXGt5rwVU7Xf6hDStDn4BVXM0jMt5lg==
+  dependencies:
+    "@mintbase-js/wallet" "0.5.0-beta.6"
 
 "@near-wallet-selector/modal-ui@^8.8.0":
   version "8.8.0"
