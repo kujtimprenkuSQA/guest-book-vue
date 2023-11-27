@@ -27,6 +27,7 @@ import { CONTRACT_ID } from "./constants";
 import {setupXDEFI} from "@near-wallet-selector/xdefi";
 import {setupNarwallets} from "@near-wallet-selector/narwallets";
 import {setupFinerWallet} from "@near-wallet-selector/finer-wallet";
+import {setupBitgetWallet} from "@near-wallet-selector/bitget-wallet";
 
 const selector = shallowRef<WalletSelector>();
 const modal = shallowRef<WalletSelectorModal>();
@@ -54,6 +55,7 @@ onMounted(async () => {
       setupRamperWallet(),
       setupNearMobileWallet(),
       setupMintbaseWallet(),
+        setupBitgetWallet(),
       setupWalletConnect({
         projectId: process.env.WALLETCONNECT_PROJECT_ID,
         metadata: {
