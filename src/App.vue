@@ -26,7 +26,6 @@ import type { WalletSelectorModal } from "@near-wallet-selector/modal-ui";
 import { CONTRACT_ID } from "./constants";
 import {setupXDEFI} from "@near-wallet-selector/xdefi";
 import {setupNarwallets} from "@near-wallet-selector/narwallets";
-import {setupFinerWallet} from "@near-wallet-selector/finer-wallet";
 import {setupBitgetWallet} from "@near-wallet-selector/bitget-wallet";
 
 const selector = shallowRef<WalletSelector>();
@@ -50,7 +49,6 @@ onMounted(async () => {
       setupNeth({ bundle: false }),
       setupXDEFI(),
       setupNarwallets(),
-      setupFinerWallet(),
       setupNearSnap(),
       setupRamperWallet(),
       setupNearMobileWallet(),
