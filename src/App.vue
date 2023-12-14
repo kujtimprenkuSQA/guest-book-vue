@@ -35,7 +35,7 @@ const accounts = shallowRef<Array<AccountState>>();
 
 onMounted(async () => {
   const _selector = await setupWalletSelector({
-    network: "testnet",
+    network: "mainnet",
     modules: [
       setupNearWallet(),
       setupSender(),
